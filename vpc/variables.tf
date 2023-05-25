@@ -30,25 +30,25 @@ variable "azs" {
   type        = list(string)
 }
 
-variable "private_subnets" {
-  description = "CIDR range for private subnets"
-  type        = list(string)
-}
+# variable "private_subnets" {
+#   description = "CIDR range for private subnets"
+#   type        = list(string)
+# }
 
-variable "public_subnets" {
-  description = "CIDR range for public subnets"
-  type        = list(string)
-}
+# variable "public_subnets" {
+#   description = "CIDR range for public subnets"
+#   type        = list(string)
+# }
 
-variable "private_subnet_names" {
-  description = "Private subnet names"
-  type        = list(string)
-}
+# variable "private_subnet_names" {
+#   description = "Private subnet names"
+#   type        = list(string)
+# }
 
-variable "public_subnet_names" {
-  description = "Public subnet names"
-  type        = list(string)
-}
+# variable "public_subnet_names" {
+#   description = "Public subnet names"
+#   type        = list(string)
+# }
 
 variable "private_subnet_tags" {
   description = "Private subnet tags"
