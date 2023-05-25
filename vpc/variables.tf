@@ -60,14 +60,8 @@ variable "public_route_table_tags" {
   type        = map(string)
 }
 
-variable "enable_nat_gateway" {
-  description = "NAT Gateways for each private networks"
-  type        = bool
-  default     = true
-}
-
-variable "enable_vpn_gateway" {
-  description = "Create a new VPN Gateway resource and attach it to the VPC"
+variable "enable_dns_hostnames" {
+  description = "enable DNS hostnames in the VPC"
   type        = bool
   default     = true
 }
@@ -75,6 +69,12 @@ variable "enable_vpn_gateway" {
 variable "igw_tags" {
   description = "Tags for Internet Gateway"
   type        = map(string)
+}
+
+variable "enable_nat_gateway" {
+  description = "NAT Gateways for each private networks"
+  type        = bool
+  default     = true
 }
 
 variable "nat_gateway_tags" {
