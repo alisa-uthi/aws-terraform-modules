@@ -4,14 +4,17 @@ module "vpc" {
 
   azs  = var.azs
   name = var.name
-  cidr = var.cidr
+  tags = var.tags
 
-  private_subnets          = [for k, v in var.azs : cidrsubnet(var.cidr, 8, k)]
+  cidr     = var.cidr
+  vpc_tags = var.vpc_tags
+
+  private_subnets          = var.private_subnets
   private_subnet_names     = var.private_subnet_names
   private_subnet_tags      = var.private_subnet_tags
   private_route_table_tags = var.private_route_table_tags
 
-  public_subnets          = [for k, v in var.azs : cidrsubnet(var.cidr, 8, k + 4)]
+  public_subnets          = var.public_subnets
   public_subnet_names     = var.public_subnet_names
   public_subnet_tags      = var.public_subnet_tags
   public_route_table_tags = var.public_route_table_tags
