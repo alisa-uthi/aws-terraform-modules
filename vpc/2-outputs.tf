@@ -28,10 +28,10 @@ output "public_subnets_ids" {
   value       = aws_subnet.public[*].id
 }
 
-output "nat_gateway_id" {
-  description = "The ID of the NAT Gateway"
-  value       = aws_nat_gateway.this.id
-}
+# output "nat_gateway_id" {
+#   description = "The ID of the NAT Gateway"
+#   value       = aws_nat_gateway.this.id
+# }
 
 output "igt_gateway_id" {
   description = "The ID of the Internet Gateway"

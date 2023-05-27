@@ -6,7 +6,7 @@ resource "aws_route_table" "private" {
   # For Private subnet to send all other subnet traffic to the NAT gateway
   route {
     cidr_block     = "0.0.0.0/0"
-    nat_gateway_id = aws_nat_gateway.this.id
+    # nat_gateway_id = aws_nat_gateway.this.id
   }
 
   tags = merge(
@@ -14,7 +14,7 @@ resource "aws_route_table" "private" {
     var.private_route_table_tags
   )
 
-  depends_on = [aws_nat_gateway.this]
+  # depends_on = [aws_nat_gateway.this]
 }
 
 resource "aws_route_table" "public" {
