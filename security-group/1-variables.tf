@@ -32,7 +32,7 @@ variable "ingress_rules" {
     cidr_blocks        = optional(list(string))
     ipv6_cidr_blocks   = optional(list(string))
     security_group_ids = optional(list(string))
-    seft               = optional(bool)
+    self               = optional(bool)
   }))
 
   default = [
@@ -44,7 +44,7 @@ variable "ingress_rules" {
       cidr_blocks        = ["0.0.0.0/0"]
       ipv6_cidr_blocks   = ["::/0"]
       security_group_ids = null
-      seft               = true
+      self               = true
     },
     {
       description        = "Allow HTTPS inbound traffic"
@@ -54,7 +54,7 @@ variable "ingress_rules" {
       cidr_blocks        = ["0.0.0.0/0"]
       ipv6_cidr_blocks   = ["::/0"]
       security_group_ids = null
-      seft               = true
+      self               = true
     }
   ]
 }
@@ -69,7 +69,7 @@ variable "egress_rules" {
     cidr_blocks        = optional(list(string))
     ipv6_cidr_blocks   = optional(list(string))
     security_group_ids = optional(list(string))
-    seft               = optional(bool)
+    self               = optional(bool)
   }))
 
   default = [
@@ -81,7 +81,7 @@ variable "egress_rules" {
       cidr_blocks        = ["0.0.0.0/0"]
       ipv6_cidr_blocks   = ["::/0"]
       security_group_ids = null
-      seft               = true
+      self               = true
     }
   ]
 }
