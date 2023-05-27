@@ -10,10 +10,10 @@ resource "aws_security_group" "this" {
       from_port        = ingress.value["from_port"]
       to_port          = ingress.value["to_port"]
       protocol         = ingress.value["protocol"]
-      cidr_blocks      = ingress.value["cidr_blocks"]
-      ipv6_cidr_blocks = ingress.value["ipv6_cidr_blocks"]
-      security_groups  = ingress.value["security_group_ids"]
-      self             = ingress.value["self"]
+      cidr_blocks      = ingress.value["cidr_blocks"] ? ingress.value["cidr_blocks"] : null
+      ipv6_cidr_blocks = ingress.value["ipv6_cidr_blocks"] ? ingress.value["ipv6_cidr_blocks"] : null
+      security_groups  = ingress.value["security_group_ids"] ? ingress.value["security_group_ids"] : null
+      self             = ingress.value["self"] ? ingress.value["self"] : false
     }
   }
 
@@ -23,10 +23,10 @@ resource "aws_security_group" "this" {
       from_port        = egress.value["from_port"]
       to_port          = egress.value["to_port"]
       protocol         = egress.value["protocol"]
-      cidr_blocks      = egress.value["cidr_blocks"]
-      ipv6_cidr_blocks = egress.value["ipv6_cidr_blocks"]
-      security_groups  = egress.value["security_group_ids"]
-      self             = egress.value["self"]
+      cidr_blocks      = egress.value["cidr_blocks"] ? egress.value["cidr_blocks"] : null
+      ipv6_cidr_blocks = egress.value["ipv6_cidr_blocks"] ? egress.value["ipv6_cidr_blocks"] : null
+      security_groups  = egress.value["security_group_ids"] ? egress.value["security_group_ids"] : null
+      self             = egress.value["self"] ? egress.value["self"] : false
     }
   }
 
