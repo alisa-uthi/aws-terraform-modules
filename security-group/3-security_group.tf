@@ -6,27 +6,27 @@ resource "aws_security_group" "this" {
   dynamic "ingress" {
     for_each = var.ingress_rules
     content {
-      description      = ingress_rules.value["description"]
-      from_port        = ingress_rules.value["from_port"]
-      to_port          = ingress_rules.value["to_port"]
-      protocol         = ingress_rules.value["protocol"]
-      cidr_blocks      = ingress_rules.value["cidr_blocks"]
-      ipv6_cidr_blocks = ingress_rules.value["ipv6_cidr_blocks"]
-      security_groups  = ingress_rules.value["security_group_ids"]
-      self             = ingress_rules.value["self"]
+      description      = ingress.value["description"]
+      from_port        = ingress.value["from_port"]
+      to_port          = ingress.value["to_port"]
+      protocol         = ingress.value["protocol"]
+      cidr_blocks      = ingress.value["cidr_blocks"]
+      ipv6_cidr_blocks = ingress.value["ipv6_cidr_blocks"]
+      security_groups  = ingress.value["security_group_ids"]
+      self             = ingress.value["self"]
     }
   }
 
   dynamic "egress" {
     for_each = var.egress_rules
     content {
-      from_port        = egress_rules.value["from_port"]
-      to_port          = egress_rules.value["to_port"]
-      protocol         = egress_rules.value["protocol"]
-      cidr_blocks      = egress_rules.value["cidr_blocks"]
-      ipv6_cidr_blocks = egress_rules.value["ipv6_cidr_blocks"]
-      security_groups  = egress_rules.value["security_group_ids"]
-      self             = egress_rules.value["self"]
+      from_port        = egress.value["from_port"]
+      to_port          = egress.value["to_port"]
+      protocol         = egress.value["protocol"]
+      cidr_blocks      = egress.value["cidr_blocks"]
+      ipv6_cidr_blocks = egress.value["ipv6_cidr_blocks"]
+      security_groups  = egress.value["security_group_ids"]
+      self             = egress.value["self"]
     }
   }
 
