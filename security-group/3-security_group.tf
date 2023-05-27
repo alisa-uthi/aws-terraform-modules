@@ -20,6 +20,7 @@ resource "aws_security_group" "this" {
   dynamic "egress" {
     for_each = var.egress_rules
     content {
+      description      = egress.value["description"]
       from_port        = egress.value["from_port"]
       to_port          = egress.value["to_port"]
       protocol         = egress.value["protocol"]
