@@ -29,10 +29,10 @@ variable "ingress_rules" {
     from_port          = number
     to_port            = number
     protocol           = string
-    cidr_blocks        = list(string)
-    ipv6_cidr_blocks   = list(string)
-    security_group_ids = list(string)
-    seft               = bool
+    cidr_blocks        = optional(list(string))
+    ipv6_cidr_blocks   = optional(list(string))
+    security_group_ids = optional(list(string))
+    seft               = optional(bool)
   }))
 
   default = [
@@ -66,10 +66,10 @@ variable "egress_rules" {
     from_port          = number
     to_port            = number
     protocol           = string
-    cidr_blocks        = list(string)
-    ipv6_cidr_blocks   = list(string)
-    security_group_ids = list(string)
-    seft               = bool
+    cidr_blocks        = optional(list(string))
+    ipv6_cidr_blocks   = optional(list(string))
+    security_group_ids = optional(list(string))
+    seft               = optional(bool)
   }))
 
   default = [
