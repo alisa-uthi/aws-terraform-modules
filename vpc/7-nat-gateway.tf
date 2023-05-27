@@ -1,5 +1,4 @@
 resource "aws_eip" "this" {
-  domain     = "vpc"
   tags       = var.tags
   depends_on = [aws_internet_gateway.this]
 }
