@@ -10,10 +10,10 @@ resource "aws_security_group" "this" {
       from_port        = ingress.value["from_port"]
       to_port          = ingress.value["to_port"]
       protocol         = ingress.value["protocol"]
-      cidr_blocks      = ingress.value["cidr_blocks"] == null || length(ingress.value["cidr_blocks"]) == 0 ? null : ingress.value["cidr_blocks"] 
-      ipv6_cidr_blocks = ingress.value["ipv6_cidr_blocks"] == null || length(ingress.value["ipv6_cidr_blocks"]) == 0 ? null : ingress.value["ipv6_cidr_blocks"] 
-      security_groups  = ingress.value["security_group_ids"] == null || length(ingress.value["security_group_ids"]) == 0 ? null : ingress.value["security_group_ids"] 
-      self             = ingress.value["self"] == null ? false : ingress.value["self"]
+      cidr_blocks      = lookup(ingress.value, "cidr_blocks", null)
+      ipv6_cidr_blocks = lookup(ingress.value, "ipv6_cidr_blocks", null)
+      security_groups  = lookup(ingress.value, "security_groups", null)
+      self             = lookup(ingress.value, "self", null)
     }
   }
 
@@ -23,10 +23,10 @@ resource "aws_security_group" "this" {
       from_port        = egress.value["from_port"]
       to_port          = egress.value["to_port"]
       protocol         = egress.value["protocol"]
-      cidr_blocks      = egress.value["cidr_blocks"] == null || length(egress.value["cidr_blocks"]) == 0 ? null : egress.value["cidr_blocks"] 
-      ipv6_cidr_blocks = egress.value["ipv6_cidr_blocks"] == null || length(egress.value["ipv6_cidr_blocks"]) == 0 ? null : egress.value["ipv6_cidr_blocks"] 
-      security_groups  = egress.value["security_group_ids"] == null || length(egress.value["security_group_ids"]) == 0 ? null : egress.value["security_group_ids"] 
-      self             = egress.value["self"] == null ? false : egress.value["self"]
+      cidr_blocks      = lookup(egress.value, "cidr_blocks", null)
+      ipv6_cidr_blocks = lookup(egress.value, "ipv6_cidr_blocks", null)
+      security_groups  = lookup(egress.value, "security_groups", null)
+      self             = lookup(egress.value, "self", null)
     }
   }
 
