@@ -1,13 +1,13 @@
+variable "env" {
+  description = "Environment name"
+  type        = string
+  default     = "dev"
+}
+
 variable "region" {
   description = "Region name"
   type        = string
   default     = "us-east-1"
-}
-
-variable "name" {
-  description = "A map of tags to add to all resources"
-  type        = string
-  default     = null
 }
 
 variable "tags" {
@@ -28,7 +28,7 @@ variable "cidr" {
   default     = "10.0.0.0/16"
 }
 
-variable "azs" {
+variable "availability_zones" {
   description = "Availability zones for subnets"
   type        = list(string)
   default     = []
@@ -60,25 +60,25 @@ variable "public_subnet_names" {
 
 variable "private_subnet_tags" {
   description = "Private subnet tags"
-  type        = map(string)
+  type        = map(any)
   default     = {}
 }
 
 variable "public_subnet_tags" {
   description = "Public subnet tags"
-  type        = map(string)
+  type        = map(any)
   default     = {}
 }
 
 variable "private_route_table_tags" {
   description = "Tags for Private Route Table"
-  type        = map(string)
+  type        = map(any)
   default     = {}
 }
 
 variable "public_route_table_tags" {
   description = "Tags for Public Route Table"
-  type        = map(string)
+  type        = map(any)
   default     = {}
 }
 
@@ -90,25 +90,12 @@ variable "enable_dns_hostnames" {
 
 variable "igw_tags" {
   description = "Tags for Internet Gateway"
-  type        = map(string)
+  type        = map(any)
   default     = {}
-}
-
-variable "enable_nat_gateway" {
-  description = "NAT Gateways for each private networks"
-  type        = bool
-  default     = true
 }
 
 variable "nat_gateway_tags" {
   description = "Tags for NAT Gateway"
-  type        = map(string)
+  type        = map(any)
   default     = {}
 }
-
-variable "one_nat_gateway_per_az" {
-  description = "One NAT Gateway per Availability Zone"
-  type        = bool
-  default     = true
-}
-
