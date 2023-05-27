@@ -1,7 +1,7 @@
 resource "aws_security_group" "this" {
   name        = "allow_tls"
   description = "Allow TLS inbound traffic"
-  vpc_id      = aws_vpc.this.id
+  vpc_id      = var.vpc_id
 
   dynamic "ingress" {
     for_each = var.ingress_rules
@@ -12,6 +12,8 @@ resource "aws_security_group" "this" {
       protocol         = ingress_rules.value["protocol"]
       cidr_blocks      = ingress_rules.value["cidr_blocks"]
       ipv6_cidr_blocks = ingress_rules.value["ipv6_cidr_blocks"]
+      security_groups  = ingress_rules.value["security_group_ids"]
+      self             = ingress_rules.value["self"]
     }
   }
 
@@ -23,10 +25,10 @@ resource "aws_security_group" "this" {
       protocol         = egress_rules.value["protocol"]
       cidr_blocks      = egress_rules.value["cidr_blocks"]
       ipv6_cidr_blocks = egress_rules.value["ipv6_cidr_blocks"]
+      security_groups  = egress_rules.value["security_group_ids"]
+      self             = egress_rules.value["self"]
     }
   }
 
   tags = var.tags
-
-  depends_on = [ aws_vpc.this ]
 }
