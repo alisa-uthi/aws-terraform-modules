@@ -99,3 +99,9 @@ variable "nat_gateway_tags" {
   type        = map(any)
   default     = {}
 }
+
+variable "kubernetes_cluster_name" {
+  description = "Kubernetes Cluster Name"
+  type        = string
+  default     = ""
+}

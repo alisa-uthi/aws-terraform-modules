@@ -57,3 +57,8 @@ output "public_route_table_associate_ids" {
   description = "List of IDs of the Public Route Table Association"
   value       = aws_route_table_association.public[*].id
 }
+
+output "kubernetes_cluster_name" {
+  description = "Kubernetes Cluster Name"
+  value       = var.kubernetes_cluster_name
+}
