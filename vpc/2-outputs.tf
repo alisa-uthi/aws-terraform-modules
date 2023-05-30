@@ -1,3 +1,8 @@
+output "region" {
+  description = "Region"
+  value       = var.region
+}
+
 output "availability_zones" {
   description = "List of availability zones"
   value       = var.availability_zones
