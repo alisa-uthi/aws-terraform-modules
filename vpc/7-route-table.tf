@@ -4,12 +4,10 @@ resource "aws_route_table" "private" {
   vpc_id = aws_vpc.this.id
 
   # For Private subnet to send all other subnet traffic to the NAT gateway
-  # route {
-  #   cidr_block     = "0.0.0.0/0"
-  #   nat_gateway_id = aws_nat_gateway.this.id
-  # }
-
-  route = []
+  route {
+    cidr_block     = "0.0.0.0/0"
+    nat_gateway_id = aws_nat_gateway.this.id
+  }
 
   tags = merge(
     var.tags,
