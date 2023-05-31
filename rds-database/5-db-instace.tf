@@ -11,7 +11,7 @@ resource "aws_db_instance" "this" {
   username                            = var.username
   password                            = var.password
   port                                = var.port
-  manage_master_user_password         = var.manage_master_user_password
+  manage_master_user_password         = var.password != null ? null : var.manage_master_user_password
   iam_database_authentication_enabled = true
   storage_encrypted                   = true
 
