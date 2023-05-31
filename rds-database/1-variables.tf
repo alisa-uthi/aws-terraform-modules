@@ -80,87 +80,87 @@ variable "egress_rules" {
 #### DB Instance ####
 variable "allocated_storage" {
   description = "The allocated storage in gibibytes"
-  type = number
-  default = 5  
+  type        = number
+  default     = null
 }
 
 variable "identifier" {
   description = "The name of the RDS instance"
-  type = string
-  default = null  
+  type        = string
+  default     = null
 }
 
 variable "db_name" {
   description = "The name of the database to create when the DB instance is created"
-  type = string
-  default = "database_name"  
+  type        = string
+  default     = "database_name"
 }
 
 variable "engine" {
   description = "The database engine to use"
-  type = string
-  default = "mysql"  
+  type        = string
+  default     = null
 }
 
 variable "engine_version" {
   description = "The engine version to use"
-  type = string
-  default = "8.0"  
+  type        = string
+  default     = null
 }
 
 variable "instance_class" {
   description = "The instance type of the RDS instance"
-  type = string
-  default = "db.t3.micro"  
+  type        = string
+  default     = "db.t3.micro"
 }
 
 variable "availability_zone" {
   description = "The availability zone for the RDS instance"
-  type = string
-  default = "us-east-1a"  
+  type        = string
+  default     = "us-east-1a"
 }
 
 variable "username" {
   description = "Username for the master DB user"
-  type = string
-  default = null  
+  type        = string
+  default     = null
 }
 
 variable "password" {
   description = "RDS root user password"
   type        = string
-  default = null
+  default     = null
   sensitive   = true
 }
 
 variable "port" {
   description = "The port on which the DB accepts connections"
-  type = number
-  default = 3306  
+  type        = number
+  default     = 3306
 }
 
 variable "manage_master_user_password" {
   description = "Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if password is provided"
-  type = bool
-  default = false  
+  type        = bool
+  default     = false
 }
 
 variable "deletion_protection" {
   description = "If the DB instance should have deletion protection enabled"
-  type = bool
-  default = true  
+  type        = bool
+  default     = true
 }
 
 variable "skip_final_snapshot" {
   description = "Determines whether a final DB snapshot is created before the DB instance is deleted"
-  type = bool
-  default = false  
+  type        = bool
+  default     = false
 }
 
 variable "final_snapshot_identifier" {
   description = "The name of your final DB snapshot when this DB instance is deleted. Must be provided if skip_final_snapshot is set to false"
-  type = string
-  default = null  
+  type        = string
+  default     = null
 }
 
 #### DB Subnet Group ####
