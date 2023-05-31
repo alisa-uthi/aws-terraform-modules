@@ -1,11 +1,12 @@
 resource "aws_db_instance" "this" {
-  allocated_storage = var.allocated_storage
-  identifier        = var.identifier
-  db_name           = var.db_name
-  engine            = var.engine
-  engine_version    = var.engine_version
-  instance_class    = var.instance_class
-  availability_zone = var.availability_zone
+  allocated_storage    = var.allocated_storage
+  identifier           = var.identifier
+  db_name              = var.db_name
+  engine               = var.engine
+  engine_version       = var.engine_version
+  instance_class       = var.instance_class
+  availability_zone    = var.availability_zone
+  db_subnet_group_name = aws_db_subnet_group.this.name
 
   username                            = var.username
   password                            = var.password
@@ -21,6 +22,6 @@ resource "aws_db_instance" "this" {
   skip_final_snapshot       = var.skip_final_snapshot
   final_snapshot_identifier = var.final_snapshot_identifier
 
-  tags = var.tags
-  depends_on = [ aws_security_group.rds, aws_db_subnet_group.this ]
+  tags       = var.tags
+  depends_on = [aws_security_group.rds, aws_db_subnet_group.this]
 }
