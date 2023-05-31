@@ -22,4 +22,5 @@ resource "aws_db_instance" "this" {
   final_snapshot_identifier = var.final_snapshot_identifier
 
   tags = var.tags
+  depends_on = [ aws_security_group.rds, aws_db_subnet_group.this ]
 }
