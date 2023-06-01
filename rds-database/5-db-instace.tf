@@ -16,8 +16,8 @@ resource "aws_db_instance" "this" {
   storage_encrypted                   = true
 
   vpc_security_group_ids = ["${aws_security_group.rds.id}"]
-
-  deletion_protection = var.deletion_protection
+  publicly_accessible    = var.publicly_accessible
+  deletion_protection    = var.deletion_protection
 
   skip_final_snapshot       = var.skip_final_snapshot
   final_snapshot_identifier = var.final_snapshot_identifier

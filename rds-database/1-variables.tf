@@ -163,6 +163,12 @@ variable "final_snapshot_identifier" {
   default     = null
 }
 
+variable "publicly_accessible" {
+  description = "Bool to control if instance is publicly accessible"
+  type        = bool
+  default     = false
+}
+
 #### DB Subnet Group ####
 variable "db_subnet_group_name" {
   description = "The name of the DB subnet group"
