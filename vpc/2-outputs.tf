@@ -33,6 +33,16 @@ output "public_subnet_ids" {
   value       = aws_subnet.public[*].id
 }
 
+output "private_subnets" {
+  description = "List of private subnets"
+  value = var.private_subnets
+}
+
+output "public_subnets" {
+  description = "List of public subnets"
+  value = var.public_subnets
+}
+
 output "nat_gateway_id" {
   description = "The ID of the NAT Gateway"
   value       = aws_nat_gateway.this.id
