@@ -35,12 +35,12 @@ output "public_subnet_ids" {
 
 output "private_subnets" {
   description = "List of private subnets"
-  value = var.private_subnets
+  value       = var.private_subnets
 }
 
 output "public_subnets" {
   description = "List of public subnets"
-  value = var.public_subnets
+  value       = var.public_subnets
 }
 
 output "nat_gateway_id" {
