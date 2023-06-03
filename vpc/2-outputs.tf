@@ -1,3 +1,8 @@
+output "env" {
+  description = "Environment"
+  value       = var.env
+}
+
 output "region" {
   description = "Region"
   value       = var.region
